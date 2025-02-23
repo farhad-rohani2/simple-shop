@@ -1,0 +1,26 @@
+{
+    "name": "script",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.26.0",
+        "@rollup/plugin-inject": "^5.0.5",
+        "@vitejs/plugin-vue": "^1.7.1",
+        "npm": "^10.9.0",
+        "vue": "^3.4.38",
+        "vue-api-query": "^1.11.0",
+        "vue-select": "^4.0.0-beta.6",
+        "vuex": "^4.1.0"
+    },
+    "devDependencies": {
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/typography": "^0.5.15",
+        "vite": "^6.1.1"
+    }
+}

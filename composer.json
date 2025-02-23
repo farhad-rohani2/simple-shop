@@ -30,7 +30,9 @@
             "Database\\Seeders\\": "database/seeders/",
             "Modules\\Orders\\": "modules/orders/src",
             "Modules\\ProductCategories\\": "modules/product-categories/src",
-            "Modules\\Products\\": "modules/products/src"
+            "Modules\\Products\\": "modules/products/src",
+            "Modules\\AdminPanel\\": "modules/admin-panel/src",
+            "Modules\\UserPanel\\": "modules/user-panel/src"
         }
     },
     "autoload-dev": {
