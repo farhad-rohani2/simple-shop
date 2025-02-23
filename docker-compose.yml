@@ -32,10 +32,10 @@ services:
         depends_on:
             - mysql
             #            - phpmyadmin
-            - redis
+#            - redis
             #            - meilisearch
             #            - mailpit
-            - selenium
+#            - selenium
     mysql:
         image: 'docker.arvancloud.ir/mysql/mysql-server:8.0'
         ports:
@@ -48,7 +48,7 @@ services:
             MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
-            - 'sail-mysql-2:/var/lib/mysql'
+            - 'sail-mysql-3:/var/lib/mysql'
 #            - './docker/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
         networks:
             - sail
@@ -87,21 +87,21 @@ services:
     #            # define directory path where you shall store your persistent data and config
     #            # files of phpmyadmin
     #            - ./docker/phpmyadmin
-    redis:
-        image: 'docker.arvancloud.ir/redis:alpine'
-        ports:
-            - '6380:6379'
-        volumes:
-            - 'sail-redis:/data'
-        networks:
-            - sail
-        healthcheck:
-            test:
-                - CMD
-                - redis-cli
-                - ping
-            retries: 3
-            timeout: 5s
+#    redis:
+#        image: 'docker.arvancloud.ir/redis:alpine'
+#        ports:
+#            - '6380:6379'
+#        volumes:
+#            - 'sail-redis:/data'
+#        networks:
+#            - sail
+#        healthcheck:
+#            test:
+#                - CMD
+#                - redis-cli
+#                - ping
+#            retries: 3
+#            timeout: 5s
     #    meilisearch:
     #        image: 'getmeili/meilisearch:latest'
     #        ports:
@@ -126,25 +126,25 @@ services:
     #            - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
     #        networks:
     #            - sail
-    selenium:
-        image: docker.arvancloud.ir/selenium/standalone-chrome
-        extra_hosts:
-            - 'host.docker.internal:host-gateway'
-        volumes:
-            - '/dev/shm:/dev/shm'
-        networks:
-            - sail
-#        network_mode: host
-        ports:
-            - '4445:4444'
-#        environment:
-#            HTTP_PROXY: socks5://192.168.202.174:12334
-#            HTTPS_PROXY: socks5://192.168.202.174:12334
+#    selenium:
+#        image: docker.arvancloud.ir/selenium/standalone-chrome
+#        extra_hosts:
+#            - 'host.docker.internal:host-gateway'
+#        volumes:
+#            - '/dev/shm:/dev/shm'
+#        networks:
+#            - sail
+##        network_mode: host
+#        ports:
+#            - '4445:4444'
+##        environment:
+##            HTTP_PROXY: socks5://192.168.202.174:12334
+##            HTTPS_PROXY: socks5://192.168.202.174:12334
 networks:
     sail:
         driver: bridge
 volumes:
-    sail-mysql-2:
+    sail-mysql-3:
         driver: local
     sail-redis:
         driver: local
