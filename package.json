@@ -16,5 +16,12 @@
         "tailwindcss": "^3.2.1",
         "vite": "^4.0.0",
         "vue": "^3.2.41"
+    },
+    "dependencies": {
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/typography": "^0.5.16",
+        "vue-api-query": "^1.11.0",
+        "vuex": "^4.1.0",
+        "vuex-persistedstate": "^4.1.0"
     }
 }

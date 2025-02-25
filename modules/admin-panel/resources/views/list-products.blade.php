@@ -12,7 +12,7 @@
         ->withEntryPoints(['tailwind.css'])}}
 </head>
 <body>
-
+<div id="app"></div>
 </body>
 
 </html>

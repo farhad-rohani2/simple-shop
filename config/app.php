@@ -194,9 +194,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
 
         Modules\ProductCategories\Providers\ProductCategoryServiceProvider::class,
         Modules\AdminPanel\Providers\AdminPanelServiceProvider::class,
+        Modules\Products\Providers\ProductsServiceProvider::class,
+        Modules\Orders\Providers\OrdersServiceProvider::class,
+        Modules\Auth\Providers\AuthServiceProvider::class,
     ],
 
     /*

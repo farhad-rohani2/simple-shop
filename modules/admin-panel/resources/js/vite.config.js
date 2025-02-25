@@ -1,6 +1,8 @@
 import {defineConfig, loadEnv} from "vite";
 import laravel from "laravel-vite-plugin";
 import vue from '@vitejs/plugin-vue';
+import tailwindcss from '@tailwindcss/vite'
+
 import inject from "@rollup/plugin-inject";
 
 
@@ -12,6 +14,11 @@ export default defineConfig(({mode}) => {
 
     Object.assign(process.env, loadEnv(mode, envDir));
     return {
+        server: {
+            cors: {
+                origin: '*',
+            },
+        },
         build: {
             emptyOutDir: true,
             rollupOptions: {
@@ -20,18 +27,19 @@ export default defineConfig(({mode}) => {
         },
 
         plugins: [
-            inject({
-                $ : 'jquery',
-                jQuery: 'jquery',
-                jquery: 'jquery',
-            }),
+            // inject({
+            //     $ : 'jquery',
+            //     jQuery: 'jquery',
+            //     jquery: 'jquery',
+            // }),
+            tailwindcss(),
             vue(),
             laravel({
                 hotFile: "../../../../public/builds/admin-panel-hot",
                 publicDirectory: "../../../../public",
                 buildDirectory: "/builds/admin-panel",
                 input: [
-                    "tailwind.css",
+                    "../css/tailwind.css",
                     "./src/main.js",
                     // "./assets/scss/_blueberry.scss"
                 ],
@@ -56,11 +64,13 @@ export default defineConfig(({mode}) => {
             },
         },
         css: {
-            preprocessorOptions: {
-                scss: {
-                    // additionalData: `@import "@/assets/scss/global.scss";`,
-                },
-            },
+            // preprocessorOptions: {
+            //     scss: {
+            //         // additionalData: `@import "@/assets/scss/global.scss";`,
+            //     },
+            // },
+            // postcss: "postcss.config.js",
+
         },
     };
 });

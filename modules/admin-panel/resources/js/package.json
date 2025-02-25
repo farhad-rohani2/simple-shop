@@ -1,5 +1,5 @@
 {
-    "name": "script",
+    "name": "vite-vue-starter",
     "private": true,
     "version": "0.0.0",
     "type": "module",
@@ -9,18 +9,18 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@babel/runtime": "^7.26.0",
-        "@rollup/plugin-inject": "^5.0.5",
-        "@vitejs/plugin-vue": "^1.7.1",
-        "npm": "^10.9.0",
-        "vue": "^3.4.38",
-        "vue-api-query": "^1.11.0",
-        "vue-select": "^4.0.0-beta.6",
-        "vuex": "^4.1.0"
+        "@tailwindcss/vite": "^4.0.8",
+        "sweetalert2": "^11.17.2",
+        "vue": "^3.5.13",
+        "vue-router": "^4.5.0"
     },
     "devDependencies": {
-        "@tailwindcss/aspect-ratio": "^0.4.2",
-        "@tailwindcss/typography": "^0.5.15",
-        "vite": "^6.1.1"
+        "@rollup/plugin-inject": "^5.0.5",
+        "@tailwindcss/postcss": "^4.0.8",
+        "@vitejs/plugin-vue": "^5.2.1",
+        "autoprefixer": "^10.4.20",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.0.8",
+        "vite": "^6.1.0"
     }
 }

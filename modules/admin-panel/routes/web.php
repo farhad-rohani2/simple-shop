@@ -8,7 +8,11 @@ use Modules\Cart\Http\Controllers\PlaceController;
 
 //Route::get('payCallback/{uuid}', [PaymentController::class, 'payCallback'])->name('cart.payCallback');
 //Route::get('admin', )->middleware(['auth:sanctum', 'verified']);
-Route::view('admin', 'admin-panel::list-products')->middleware([
-//    'auth:sanctum',
-//    'verified'
-]);
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::view('', 'admin-panel::list-products');
+    Route::view('add-product', 'admin-panel::list-products');
+    Route::view('auth', 'admin-panel::list-products');
+    Route::view('edit-product/{id}', 'admin-panel::list-products');
+});

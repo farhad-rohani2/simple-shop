@@ -20,7 +20,8 @@ class ProductCategoryController extends Controller
     {
         $this->authorize('create', ProductCategory::class);
 
-        return new ProductCategoryResource(ProductCategory::create($request->validated()));
+        $resource = ProductCategory::create($request->validated());
+        return new ProductCategoryResource($resource);
     }
 
     public function show(ProductCategory $productCategory)
