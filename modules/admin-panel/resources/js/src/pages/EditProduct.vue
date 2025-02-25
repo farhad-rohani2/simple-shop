@@ -1,17 +1,17 @@
 <template>
     <div class="container mx-auto p-6">
-        <h1 class="text-2xl font-bold mb-4">✏️ ویرایش محصول</h1>
+        <h1 class="text-2xl font-bold mb-4">✏️ Product editing</h1>
 
         <form @submit.prevent="submitForm">
             <div class="mb-4">
-                <label for="name" class="block text-gray-700">نام محصول</label>
+                <label for="name" class="block text-gray-700">Product name</label>
                 <input v-model="form.name" type="text" id="name" class="w-full p-2 border border-gray-300 rounded"
                        :class="{'border-red-500': errors.name}"/>
                 <div v-if="errors.name" class="text-red-500 text-sm">{{ errors.name[0] }}</div>
             </div>
 
             <div class="mb-4">
-                <label for="description" class="block text-gray-700">توضیحات</label>
+                <label for="description" class="block text-gray-700">Description</label>
                 <input v-model="form.description" type="text" id="description"
                        class="w-full p-2 border border-gray-300 rounded"
                        :class="{'border-red-500': errors.description}"/>
@@ -19,11 +19,11 @@
             </div>
 
             <div class="mb-4">
-                <label for="product_category_id" class="block text-gray-700">دسته‌بندی</label>
+                <label for="product_category_id" class="block text-gray-700">category</label>
                 <select v-model="form.product_category_id" id="product_category_id"
                         class="w-full p-2 border border-gray-300 rounded"
                         :class="{'border-red-500': errors.product_category_id}" required>
-                    <option value="">انتخاب کنید</option>
+                    <option value="">Choose</option>
                     <option v-for="category in categories" :key="category.id" :value="category.id">
                         {{ category.name }}
                     </option>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="mb-4">
-                <label for="price" class="block text-gray-700">قیمت (به روبل، با احتساب کوپک)</label>
+                <label for="price" class="block text-gray-700">Price (to ruble, with a copy)</label>
                 <input
                     v-model="form.price"
                     type="text"
@@ -52,7 +52,7 @@
             </div>
 
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
-                ذخیره تغییرات
+                Save changes
             </button>
         </form>
     </div>
@@ -92,7 +92,7 @@ export default {
         async loadProduct() {
             const productId = this.$route.params.id;
             if (!productId) {
-                console.error("شناسه محصول مشخص نشده است!");
+                console.error("The product ID is not specified!");
                 return;
             }
 
@@ -112,7 +112,7 @@ export default {
             if (!isNaN(price)) {
                 const rubles = Math.floor(price);
                 const kopeks = Math.round((price - rubles) * 100);
-                this.formattedPrice = `${rubles} روبل و ${kopeks.toString().padStart(2, '0')} کوپک`;
+                this.formattedPrice = `${rubles} Ruble and ${kopeks.toString().padStart(2, '0')} Copopic`;
             } else {
                 this.formattedPrice = "";
             }

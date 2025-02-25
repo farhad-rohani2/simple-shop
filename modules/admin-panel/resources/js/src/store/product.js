@@ -34,7 +34,7 @@ export default {
                     Swal.fire({
                         position: "center",
                         icon: "error",
-                        title: "❌ خطا در دریافت محصولات:",
+                        title: "❌ Error receiving products:",
                         text: error,
                         showConfirmButton: false,
                         timer: 1500
@@ -52,7 +52,7 @@ export default {
                     Swal.fire({
                         position: "center",
                         icon: "error",
-                        title: "❌ خطا در دریافت محصول:",
+                        title: "❌ Error receiving product:",
                         text: error,
                         showConfirmButton: false,
                         timer: 1500
@@ -85,7 +85,7 @@ export default {
                     Swal.fire({
                         position: "center",
                         icon: "error",
-                        title: "❌ خطا در ذخیره سازی محصول",
+                        title: "❌ Error in product storage",
                         text: error,
                         showConfirmButton: false,
                         timer: 1500
@@ -113,7 +113,7 @@ export default {
                     Swal.fire({
                         position: "center",
                         icon: "error",
-                        title: "❌ خطا در پاک کردن محصول",
+                        title: "❌ Error in clearing the product",
                         text: error,
                         showConfirmButton: false,
                         timer: 1500
@@ -141,7 +141,7 @@ export default {
                     Swal.fire({
                         position: "center",
                         icon: "error",
-                        title: "❌ خطا در پاک کردن محصول",
+                        title: "❌Error in clearing the product",
                         text: error,
                         showConfirmButton: false,
                         timer: 1500

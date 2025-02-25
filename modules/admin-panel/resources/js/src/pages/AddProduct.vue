@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto p-6">
-        <h1 class="text-2xl font-bold mb-4">📦 اضافه کردن محصول جدید</h1>
+        <h1 class="text-2xl font-bold mb-4">📦 Add new product</h1>
 
         <form @submit.prevent="">
             <div class="mb-4">
@@ -18,10 +18,10 @@
             </div>
 
             <div class="mb-4">
-                <label for="product_category_id" class="block text-gray-700">دسته‌بندی</label>
+                <label for="product_category_id" class="block text-gray-700">category</label>
                 <select v-model="form.product_category_id" id="product_category_id" class="w-full p-2 border border-gray-300 rounded"
                         :class="{'border-red-500': errors.product_category_id}" required>
-                    <option value="">انتخاب کنید</option>
+                    <option value="">Choose</option>
                     <option v-for="category in categories" :key="category.id" :value="category.id">
                         {{ category.name }}
                     </option>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="mb-4">
-                <label for="price" class="block text-gray-700">قیمت (به روبل، با احتساب کوپک)</label>
+                <label for="price" class="block text-gray-700">Price (to ruble, with a copy)</label>
                 <input
                     v-model="form.price"
                     type="text"
@@ -46,15 +46,7 @@
                 <div v-if="errors.price" class="text-red-500 text-sm">{{ errors.price[0] }}</div>
             </div>
 
-
-<!--            <div class="mb-4">-->
-<!--                <label for="image" class="block text-gray-700">لینک تصویر</label>-->
-<!--                <input v-model="form.image" type="url" id="image" class="w-full p-2 border border-gray-300 rounded"-->
-<!--                       :class="{'border-red-500': errors.image}" required/>-->
-<!--                <div v-if="errors.image" class="text-red-500 text-sm">{{ errors.image[0] }}</div>-->
-<!--            </div>-->
-
-            <button @click="submitForm" type="button" class="bg-green-500 text-white px-4 py-2 rounded">اضافه کردن محصول</button>
+            <button @click="submitForm" type="button" class="bg-green-500 text-white px-4 py-2 rounded">Add product</button>
         </form>
     </div>
 </template>
@@ -91,21 +83,21 @@ export default {
         ...mapActions("product", ["storeProduct"]),
 
         formatPrice() {
-            // فقط اعداد و یک نقطه معتبر باشند
+            // Only numbers and a valid point
             this.form.price = this.form.price.replace(/[^0-9.]/g, "");
 
-            // اطمینان از داشتن فقط یک نقطه
+            // Ensure only one point
             const parts = this.form.price.split(".");
             if (parts.length > 2) {
                 this.form.price = parts[0] + "." + parts.slice(1).join("");
             }
 
-            // نمایش روبل و کوپک
+            //Rubble and Copy
             const price = parseFloat(this.form.price);
             if (!isNaN(price)) {
-                const rubles = Math.floor(price); // روبل (عدد صحیح)
-                const kopeks = Math.round((price - rubles) * 100); // کوپک (دو رقم اعشار)
-                this.formattedPrice = `${rubles} روبل و ${kopeks.toString().padStart(2, '0')} کوپک`;
+                const rubles = Math.floor(price); // Ruble (integer)
+                const kopeks = Math.round((price - rubles) * 100); // Copy (two decimal places)
+                this.formattedPrice = `${rubles} Ruble and ${kopeks.toString().padStart(2, '0')} copopic`;
             } else {
                 this.formattedPrice = "";
             }

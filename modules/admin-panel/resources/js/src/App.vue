@@ -4,7 +4,7 @@
             <nav>
                 <ul>
                     <li v-if="!authenticated">
-                        <router-link to="/auth">ورود/ثبت نام</router-link>
+                        <router-link to="/auth">Login/Sign Up</router-link>
                     </li>
                     <template v-else>
                         <li v-text="'Hello ' + user.name"></li>
@@ -12,17 +12,17 @@
                     </template>
 
                     <li>
-                        <router-link to="/">لیست محصولات</router-link>
+                        <router-link to="/">Product List</router-link>
                     </li>
                     <li>
-                        <router-link to="/add-product">اضافه کردن محصول</router-link>
+                        <router-link to="/add-product">Add product</router-link>
                     </li>
                 </ul>
             </nav>
         </header>
 
         <main>
-            <!-- اینجا محتوای مربوط به هر مسیر به طور داینامیک قرار خواهد گرفت -->
+            <!--Here's the content of each route will be dynamic -->
             <router-view></router-view>
         </main>
     </div>
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style>
-/* استایل‌ها برای هدر و لینک‌ها */
+/* Styles for headers and links */
 nav ul {
     display: flex;
     gap: 20px;

@@ -5,7 +5,7 @@ export default {
     state: {
         user: {},
         authenticated: false,
-        errorMessage: "", // برای نمایش خطاهای ورود یا ثبت‌نام
+        errorMessage: "", //To display the login or registration errors
     },
     getters: {
         user(state) {

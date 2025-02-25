@@ -25,7 +25,7 @@ export default {
 
                 })
                 .catch(({ response: { error } }) => {
-                    console.error("❌ خطا در دریافت دسته‌بندی‌ها:", error);
+                    console.error("❌ Error receiving categories:", error);
 
                 });
         },
@@ -46,7 +46,7 @@ export default {
                     Swal.fire({
                         position: "center",
                         icon: "success",
-                        title: "❌ خطا در خیره سازی محصول",
+                        title: "❌ Error in product storage",
                         text:error,
                         showConfirmButton: false,
                         timer: 1500

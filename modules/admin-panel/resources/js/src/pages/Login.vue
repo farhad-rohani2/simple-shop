@@ -79,7 +79,7 @@ export default {
             password: "",
             password_confirmation: "",
             isLoading: false,
-            isLoginMode: true, // برای تغییر بین ثبت‌نام و ورود
+            isLoginMode: true, // to change between registration and login
         };
     },
     computed: {
@@ -108,7 +108,7 @@ export default {
 
         toggleMode() {
             this.isLoginMode = !this.isLoginMode;
-            this.errorMessage = ""; // پاک کردن خطا هنگام تغییر فرم
+            this.errorMessage = ""; // erase error when changing form
         },
     },
 };
