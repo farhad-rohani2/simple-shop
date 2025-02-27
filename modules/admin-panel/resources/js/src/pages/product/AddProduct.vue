@@ -79,7 +79,7 @@ export default {
         this.getProductCategories();
     },
     methods: {
-        ...mapActions("productCategory", ["getProductCategories","storeProductCategory"]),
+        ...mapActions("productCategory", ["getProductCategories"]),
         ...mapActions("product", ["storeProduct"]),
 
         formatPrice() {

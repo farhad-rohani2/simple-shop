@@ -39,7 +39,7 @@ export default defineConfig(({mode}) => {
                 publicDirectory: "../../../../public",
                 buildDirectory: "/builds/admin-panel",
                 input: [
-                    "../css/tailwind.css",
+                    "./tailwind.css",
                     "./src/main.js",
                     // "./assets/scss/_blueberry.scss"
                 ],

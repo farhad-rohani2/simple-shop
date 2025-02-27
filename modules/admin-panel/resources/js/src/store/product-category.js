@@ -1,5 +1,6 @@
 import axios from "axios";
 import Swal from 'sweetalert2'
+import {showError, showSuccess} from "../utils/swal.js";
 export default {
     namespaced: true,
     state: {
@@ -28,32 +29,6 @@ export default {
                     console.error("❌ Error receiving categories:", error);
 
                 });
-        },
-        async storeProductCategory({ commit, state }, payload) {
-            await axios
-                .post("/api/product-categories",payload)
-                .then(({ data }) => {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "stored",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-
-                })
-                .catch(({ response: { error } }) => {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "❌ Error in product storage",
-                        text:error,
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-
-                });
-
         },
     },
 };

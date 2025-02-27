@@ -10,3 +10,7 @@ Route::group([ 'prefix' => 'api/auth', 'controller' => AuthController::class], f
     Route::post('register', 'register');
     Route::get('check', 'check')->middleware('auth:sanctum');
 });
+
+Route::middleware(['auth:sanctum','api'])->get('api/user', function (Request $request) {
+    return \App\Models\User::get();
+});

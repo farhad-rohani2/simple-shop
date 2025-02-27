@@ -1,4 +1,5 @@
 import axios from "axios";
+import router from "../router";
 
 export default {
     namespaced: true,
@@ -17,8 +18,8 @@ export default {
     },
     mutations: {
         RESET(state) {
-            state.authenticated = false;
             state.user = {};
+            state.authenticated = false;
             state.errorMessage = "";
         },
         SET_USER(state, value) {
@@ -66,9 +67,10 @@ export default {
                 commit("SET_AUTHENTICATED", false);
             }
         },
-        async logout({ commit }) {
+        async logout({ commit,dispatch }) {
             await axios.post("/api/auth/logout");
-            commit("RESET");
+            await dispatch("resetAll", null, { root: true });
+            router.push({ name: "login" });
         },
     },
 };

@@ -4,6 +4,9 @@ import auth from './auth'
 import loader from './loader.js'
 import productCategory from "./product-category.js";
 import product from "./product.js";
+import order from "./order.js";
+import user from "./user.js";
+
 
 
 const store = createStore({
@@ -12,7 +15,9 @@ const store = createStore({
         auth,
         loader,
         productCategory,
-        product
+        product,
+        order,
+        user
     },
     actions: {
         resetAll({ state, commit }, payload) {
@@ -20,6 +25,7 @@ const store = createStore({
             commit("loader/RESET", null, { root: true });
             commit("productCategory/RESET", null, { root: true });
             commit("product/RESET", null, { root: true });
+            commit("user/RESET", null, { root: true });
             localStorage.clear();
         },
     },

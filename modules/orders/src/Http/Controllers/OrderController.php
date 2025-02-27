@@ -13,14 +13,18 @@ class OrderController extends Controller
     {
         $this->authorize('viewAny', Order::class);
 
-        return OrderResource::collection(Order::all());
+        $orders = Order::with('user')->get();
+
+        return OrderResource::collection($orders);
     }
 
     public function store(OrderRequest $request)
     {
         $this->authorize('create', Order::class);
 
-        return new OrderResource(Order::create($request->validated()));
+        $order = Order::create($request->validated());
+
+        return new OrderResource($order);
     }
 
     public function show(Order $order)

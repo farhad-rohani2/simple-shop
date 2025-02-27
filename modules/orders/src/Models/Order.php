@@ -18,7 +18,6 @@ class Order extends Model
         'status',
         'comment',
         'product_id',
-        'product_id',
         'count',
         'total',
     ];

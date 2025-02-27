@@ -11,8 +11,13 @@ use Modules\Cart\Http\Controllers\PlaceController;
 
 
 Route::group(['prefix' => 'admin'], function () {
+    Route::view('auth', 'admin-panel::list-products');
+
     Route::view('', 'admin-panel::list-products');
     Route::view('add-product', 'admin-panel::list-products');
-    Route::view('auth', 'admin-panel::list-products');
     Route::view('edit-product/{id}', 'admin-panel::list-products');
+
+    Route::view('orders', 'admin-panel::list-products');
+    Route::view('add-order', 'admin-panel::list-products');
+    Route::view('edit-order/{id}', 'admin-panel::list-products');
 });

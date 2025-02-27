@@ -5,6 +5,6 @@ use Modules\ProductCategories\Http\Controllers\ProductCategoryController;
 use Modules\Products\Http\Controllers\ProductController;
 use Modules\Products\Models\Product;
 
-Route::prefix('api')->middleware(['auth:sanctum','api'])->group(function () {
+Route::prefix('api')->middleware(['api','auth:sanctum'])->group(function () {
     Route::resource('product', ProductController::class);
 });

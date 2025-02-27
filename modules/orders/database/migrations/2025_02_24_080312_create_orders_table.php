@@ -9,13 +9,12 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('product_id')->constrained();
             $table->string('description')->nullable();
             $table->string('status');
-            $table->string('comment')->nullable();
-            $table->foreignId('product_id')->constrained();
             $table->integer('count');
-            $table->string('total');
+            $table->integer('total');
             $table->timestamps();
         });
     }

@@ -12,10 +12,16 @@
                     </template>
 
                     <li>
-                        <router-link to="/">Product List</router-link>
+                        <router-link :to="{name:'product-list'}">Product List</router-link>
                     </li>
                     <li>
-                        <router-link to="/add-product">Add product</router-link>
+                        <router-link :to="{name:'add-product'}">Add Product</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{name:'order-list'}">Order List</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{name:'add-order'}">Add Order</router-link>
                     </li>
                 </ul>
             </nav>

@@ -4,53 +4,53 @@ import {showSuccess, showError} from "../utils/swal";
 export default {
     namespaced: true,
     state: {
-        products: [],
+        orders: [],
         errors: []
     },
     getters: {
-        hasErrors(state) {
+        hasNotErrors(state) {
             return !state.errors || Object.keys(state.errors).length === 0;
         },
     },
     mutations: {
         RESET(state) {
-            state.products = [];
+            state.orders = [];
             state.errors = [];
         },
-        SET_PRODUCTS(state, value) {
-            state.products = value;
+        SET_ORDERS(state, value) {
+            state.orders = value;
         },
         SET_ERROR(state, value) {
             state.errors = value;
         },
     },
     actions: {
-        async getProducts({commit, state}, payload) {
+        async getOrders({commit, state}, payload) {
             await axios
-                .get("/api/product")
+                .get("/api/order")
                 .then(({data}) => {
-                    commit("SET_PRODUCTS", data.data);
+                    commit("SET_ORDERS", data.data);
                 })
                 .catch(({response: {error}}) => {
-                    showError('❌ Error receiving products:', error)
+                    showError('❌ Error receiving orders:', error)
                 });
         },
-        async showProduct({commit, state}, payload) {
+        async showOrder({commit, state}, payload) {
             return await axios
-                .get("/api/product/" + payload)
+                .get("/api/order/" + payload)
                 .then(({data}) => {
                     return data.data;
                 })
                 .catch(({response: {error}}) => {
-                    showError('❌ Error receiving products:', error)
+                    showError('❌ Error receiving orders:', error)
                 });
         },
-        async storeProduct({commit, state}, payload) {
+        async storeOrder({commit, state}, payload) {
 
             commit("SET_ERROR", []);
 
             await axios
-                .post("/api/product", payload)
+                .post("/api/order", payload)
                 .then(({data}) => {
                     showSuccess()
                 })
@@ -58,31 +58,31 @@ export default {
                     if (error?.response?.data?.errors) {
                         commit("SET_ERROR", error.response.data.errors);
                     }
-                    showError("❌ Error in product storage", error)
+                    showError("❌ Error in order storage", error)
                 });
 
         },
-        async updateProduct({commit, state}, {id, data}) {
+        async updateOrder({commit, state}, {id, data}) {
 
             await axios
-                .patch(`/api/product/${id}`, data)
+                .patch(`/api/order/${id}`, data)
                 .then(({data}) => {
                     showSuccess()
                 })
                 .catch((error) => {
-                    showError("❌ Error in updating the product", error)
+                    showError("❌ Error in updating the order", error)
                 });
 
         },
-        async deleteProduct({commit, state}, payload) {
+        async deleteOrder({commit, state}, payload) {
 
             await axios
-                .delete("/api/product/" + payload)
+                .delete("/api/order/" + payload)
                 .then(({data}) => {
-                   showSuccess()
+                    showSuccess()
                 })
                 .catch((error) => {
-                    showError("❌Error in clearing the product",error)
+                    showError("❌Error in clearing the order",error)
                 });
 
         },
