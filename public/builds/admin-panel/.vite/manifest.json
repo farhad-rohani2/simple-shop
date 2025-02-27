@@ -1,0 +1,16 @@
+{
+  "src/main.js": {
+    "file": "assets/main-CEeR19pI.js",
+    "name": "main",
+    "src": "src/main.js",
+    "isEntry": true,
+    "css": [
+      "assets/main-Zzny1m9B.css"
+    ]
+  },
+  "tailwind.css": {
+    "file": "assets/tailwind-BajULTQT.css",
+    "src": "tailwind.css",
+    "isEntry": true
+  }
+}
