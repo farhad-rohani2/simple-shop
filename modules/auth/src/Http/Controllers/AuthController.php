@@ -3,15 +3,15 @@
 namespace Modules\Auth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use Hash;
 use Modules\Auth\Http\Requests\RegisterAuthRequest;
+use Modules\Auth\Http\Requests\LoginAuthRequest;
 use Request;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request)
+    public function login(LoginAuthRequest $request)
     {
         auth()->attempt([
             'password' => $request->password,

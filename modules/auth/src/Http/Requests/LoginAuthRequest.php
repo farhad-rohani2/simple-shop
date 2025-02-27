@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Api\Http\Requests;
+namespace Modules\Auth\Http\Requests;
 
 
 use App\Models\User;
