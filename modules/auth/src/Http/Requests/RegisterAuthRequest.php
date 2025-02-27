@@ -6,8 +6,6 @@ use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
-use Illuminate\Validation\Rules\RequiredIf;
-use Modules\Otp\Rules\OtpRule;
 
 class RegisterAuthRequest extends FormRequest
 {
@@ -32,6 +30,13 @@ class RegisterAuthRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function validated($key = null, $default = null)
+    {
+        $validated = parent::validated();
+        $validated['password'] = bcrypt($validated['password']);
+        return $validated;
     }
 
 }

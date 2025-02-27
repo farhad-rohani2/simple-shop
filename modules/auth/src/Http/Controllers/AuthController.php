@@ -4,10 +4,8 @@ namespace Modules\Auth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Hash;
 use Modules\Auth\Http\Requests\RegisterAuthRequest;
 use Modules\Auth\Http\Requests\LoginAuthRequest;
-use Request;
 
 class AuthController extends Controller
 {
@@ -35,7 +33,7 @@ class AuthController extends Controller
     public function logout()
     {
         if (auth()->check()) {
-           return auth()->user();
+            return auth()->user();
         }
         return request()->user()->currentAccessToken()->delete();
     }
