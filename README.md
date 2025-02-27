@@ -7,10 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Внимание! Внимание!
-
-## У меня появились срочные дела, и мне не хватило времени, чтобы завершить работу. Я хотел как можно быстрее отправить вам. Завтра я закончу.
-
+# Demo https://shop.razzar.ir
 
 
 ## About Laravel
